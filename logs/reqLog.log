@@ -1,0 +1,9 @@
+ 2024-03-05	04:43:46	4b20af1c-5f39-41d0-b550-46aba3c01e4b	GET	undefined	/
+ 2024-03-05	04:43:46	4b20af1c-5f39-41d0-b550-46aba3c01e4b	GET	undefined	/css/style.css
+ 2024-03-05	05:21:58	79eb4558-235d-4dc7-af6e-d477b38caa47	OPTIONS	https://www.google.com	/
+ 2024-03-05	05:21:58	79eb4558-235d-4dc7-af6e-d477b38caa47	GET	https://www.google.com	/
+ 2024-03-05	13:42:15	4ee7bd4b-74e2-428e-af76-625eb09820d9	OPTIONS	https://www.google.com	/
+ 2024-03-05	13:42:15	4ee7bd4b-74e2-428e-af76-625eb09820d9	GET	https://www.google.com	/
+ 2024-03-05	13:42:53	4ee7bd4b-74e2-428e-af76-625eb09820d9	GET	undefined	/
+ 2024-03-05	13:42:53	4ee7bd4b-74e2-428e-af76-625eb09820d9	GET	undefined	/css/style.css
+ 2024-03-05	13:42:54	4ee7bd4b-74e2-428e-af76-625eb09820d9	GET	undefined	/favicon.ico
