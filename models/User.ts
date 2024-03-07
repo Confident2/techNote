@@ -1,14 +1,9 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-// Define roles
-enum UserRole {
-  User = "Employee",
-}
-
 // Define the IUser interface extending Document
 export interface IUser extends Document {
   username: string;
-  roles: UserRole[];
+  roles: string[];
   password: string;
   refreshToken?: string | null;
   active: boolean;
@@ -25,15 +20,14 @@ const userSchema: Schema = new Schema(
       required: true,
     },
     roles: {
-      type: [{ type: String, enum: Object.values(UserRole) }], // Validate roles against the enum values
-      default: [UserRole.User], // Default role is User
+      type: [String],
+      default: ["Employee"],
     },
+
     active: {
       type: Boolean,
       default: true,
     },
-
-    refreshToken: String,
   },
   { timestamps: true }
 );

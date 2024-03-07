@@ -11,6 +11,8 @@ import { logEvents, logger } from "./middleware/logEvents";
 import corsOptions from "./config/corsOption";
 import mongoose, { Connection } from "mongoose";
 import connectDB from "./config/dbConn";
+import userRoutes from "./routes/userRoutes";
+import noteRoutes from "./routes/noteRoutes";
 
 const dbConnection: Connection = mongoose.connection;
 connectDB();
@@ -24,6 +26,9 @@ app.use(logger);
 // Cross-Origin Resource Sharing
 app.use(cors(corsOptions));
 
+// built-in middleware to handle urlencoded data: form data
+app.use(express.urlencoded({ extended: false }));
+
 // built in middleware
 app.use(express.json());
 
@@ -36,6 +41,8 @@ app.use("/", express.static(path.join(__dirname, "/public")));
 app.use("/", express.static(path.join(__dirname, "/src")));
 
 app.use("/", rootRouter);
+app.use("/users", userRoutes);
+app.use("/notes", noteRoutes);
 
 app.all("*", (req: Request, res: Response) => {
   res.status(404);
