@@ -1,2 +1,6 @@
  2024-03-05	13:42:15	4ee7bd4b-74e2-428e-af76-625eb09820d9	Error: Not allowed by CORS	OPTIONS	/	https://www.google.com
  2024-03-05	13:42:15	4ee7bd4b-74e2-428e-af76-625eb09820d9	Error: Not allowed by CORS	GET	/	https://www.google.com
+ 2024-03-07	06:53:32	f4f2cbbc-29c9-47b9-bea9-4959c1711d15	MongoServerError: db already exists with different case already have: [TechNoteDB] trying to create [techNoteDB]	POST	/users	undefined
+ 2024-03-07	06:54:59	2d5f15dc-54e6-4a1e-8b03-036cb545ce0c	MongoServerError: db already exists with different case already have: [TechNoteDB] trying to create [techNoteDB]	POST	/users	undefined
+ 2024-03-07	06:55:50	2d5f15dc-54e6-4a1e-8b03-036cb545ce0c	MongoServerError: db already exists with different case already have: [TechNoteDB] trying to create [techNoteDB]	POST	/users	undefined
+ 2024-03-07	07:30:04	6854ab1b-5238-4681-893c-cb57a4768a41	SyntaxError: Expected double-quoted property name in JSON at position 60	POST	/users	undefined

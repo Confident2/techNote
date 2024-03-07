@@ -16,6 +16,7 @@ const logEvents_1 = require("./middleware/logEvents");
 const corsOption_1 = __importDefault(require("./config/corsOption"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dbConn_1 = __importDefault(require("./config/dbConn"));
+const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const dbConnection = mongoose_1.default.connection;
 (0, dbConn_1.default)();
 const PORT = process.env.PORT || 3500;
@@ -32,6 +33,7 @@ app.use("/", express_1.default.static(path_1.default.join(__dirname, "/public"))
 // app.use(express.static(path.join("/public"));
 app.use("/", express_1.default.static(path_1.default.join(__dirname, "/src")));
 app.use("/", roots_1.default);
+app.use("/users", userRoutes_1.default);
 app.all("*", (req, res) => {
     res.status(404);
     if (req.accepts("html")) {

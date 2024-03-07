@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
-import AutoIncrement from "mongoose-sequence";
+const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 // Define the type for User ID
 type UserID = Types.ObjectId;
@@ -9,7 +9,7 @@ export interface INote extends Document {
   text: string;
   title: string;
   refreshToken?: string | null;
-  active: boolean;
+  completed: boolean;
 }
 
 const noteSchema: Schema = new Schema(
@@ -27,11 +27,10 @@ const noteSchema: Schema = new Schema(
       type: String,
       required: true,
     },
-    active: {
+    completed: {
       type: Boolean,
       default: false,
     },
-    refreshToken: String,
   },
   { timestamps: true }
 );
@@ -42,11 +41,16 @@ interface AutoIncrementOptions {
   start_seq: number;
 }
 
-noteSchema.plugin(AutoIncrement, {
+// Pass the mongoose instance to the mongoose-sequence plugin
+const autoIncrementOptions: AutoIncrementOptions = {
+  id: "note_seq",
   inc_field: "ticket",
-  id: "ticketNums",
   start_seq: 500,
-} as AutoIncrementOptions);
+};
+noteSchema.plugin(AutoIncrement, {
+  mongoose: mongoose,
+  ...autoIncrementOptions,
+});
 
 const NoteModel = mongoose.model<INote>("Note", noteSchema);
 export default NoteModel;
