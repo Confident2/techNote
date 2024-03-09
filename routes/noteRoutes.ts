@@ -1,12 +1,12 @@
 import express from "express";
 const noteRouter = express.Router();
-import userController from "../controllers/userController";
+import noteController from "../controllers/noteController";
 
 noteRouter
   .route("/")
-  .get(noteController.getAllUsers) // read
-  .post(noteController.createUser) // create
-  .patch(noteController.updateUser) // update
-  .delete(noteController.deleteUser); // delete
+  .get(noteController.getAllNotes) // read
+  .post(noteController.createNewNote) // create
+  .patch(noteController.updateNote) // update
+  .delete(noteController.deleteNote); // delete
 
 export default noteRouter;

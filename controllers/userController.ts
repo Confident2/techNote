@@ -121,9 +121,10 @@ const deleteUser = expressAsyncHandler(async (req: Request, res: Response) => {
     }
 
     const username = user.username;
+    const _id = user.id;
     await user.deleteOne();
 
-    res.json({ message: `Username ${username} with ID ${id} deleted` });
+    res.json({ message: `Username ${username} with ID ${_id} deleted` });
   } catch (err) {
     handleError(res, 500, "Internal Server Error");
   }
