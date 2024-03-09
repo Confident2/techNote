@@ -4,3 +4,15 @@
  2024-03-07	06:54:59	2d5f15dc-54e6-4a1e-8b03-036cb545ce0c	MongoServerError: db already exists with different case already have: [TechNoteDB] trying to create [techNoteDB]	POST	/users	undefined
  2024-03-07	06:55:50	2d5f15dc-54e6-4a1e-8b03-036cb545ce0c	MongoServerError: db already exists with different case already have: [TechNoteDB] trying to create [techNoteDB]	POST	/users	undefined
  2024-03-07	07:30:04	6854ab1b-5238-4681-893c-cb57a4768a41	SyntaxError: Expected double-quoted property name in JSON at position 60	POST	/users	undefined
+ 2024-03-08	08:08:47	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/notes	http://localhost:5173
+ 2024-03-08	08:08:53	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/notes	http://localhost:5173
+ 2024-03-08	08:08:56	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/notes	http://localhost:5173
+ 2024-03-08	08:09:00	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/users	http://localhost:5173
+ 2024-03-08	08:09:07	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/users	http://localhost:5173
+ 2024-03-08	08:09:33	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/users	http://localhost:5173
+ 2024-03-08	08:09:36	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/users	http://localhost:5173
+ 2024-03-08	08:09:54	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/users	http://localhost:5173
+ 2024-03-08	08:09:58	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/users	http://localhost:5173
+ 2024-03-08	08:10:10	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/notes	http://localhost:5173
+ 2024-03-08	08:15:33	843eb8af-9e96-49a3-99a1-d88d07f57490	Error: Not allowed by CORS	GET	/users	http://localhost:5173
+ 2024-03-09	00:31:54	a751080a-e0ac-421a-8e18-70c9287178b3	SyntaxError: Expected double-quoted property name in JSON at position 120	GET	/notes	undefined

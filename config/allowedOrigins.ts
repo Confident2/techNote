@@ -4,6 +4,7 @@ const allowedOrigins: string[] = [
   "https://www.oasis.nl",
   "https://www.ecobasket.nl",
   "https://ecobasket.nl",
+  "http://localhost:5173",
 ];
 
 export default allowedOrigins;

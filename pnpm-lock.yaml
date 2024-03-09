@@ -41,6 +41,9 @@ dependencies:
   express-async-handler:
     specifier: ^1.2.0
     version: 1.2.0
+  express-rate-limit:
+    specifier: ^7.2.0
+    version: 7.2.0(express@4.18.3)
   mongodb:
     specifier: ^6.4.0
     version: 6.4.0
@@ -61,6 +64,12 @@ dependencies:
     version: 9.0.1
 
 devDependencies:
+  '@express-rate-limit/prettier':
+    specifier: ^1.1.1
+    version: 1.1.1
+  '@express-rate-limit/tsconfig':
+    specifier: 1.0.2
+    version: 1.0.2
   '@pnpm/eslint-config':
     specifier: ^1.1.0
     version: 1.1.0
@@ -754,6 +763,14 @@ packages:
   /@eslint/js@8.57.0:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /@express-rate-limit/prettier@1.1.1:
+    resolution: {integrity: sha512-aEVBHXXdVH3e+FWyC9aucgYZauBAOsP53cCtqMcG+0Fx6EqwIXVhQc+brPJuIP2AE1B8tuQSVTWpSTUXQUhd5A==}
+    dev: true
+
+  /@express-rate-limit/tsconfig@1.0.2:
+    resolution: {integrity: sha512-BMSuJSe5fITRUZRLModNIXOTjVP4TcqOXO7ohW5OwtHNNGJ48HvaKH6zuqP8CjEEcbUmjheXk9rSYUF3tDu0tA==}
     dev: true
 
   /@humanwhocodes/config-array@0.11.14:
@@ -2834,6 +2851,15 @@ packages:
 
   /express-async-handler@1.2.0:
     resolution: {integrity: sha512-rCSVtPXRmQSW8rmik/AIb2P0op6l7r1fMW538yyvTMltCO4xQEWMmobfrIxN2V1/mVrgxB8Az3reYF6yUZw37w==}
+    dev: false
+
+  /express-rate-limit@7.2.0(express@4.18.3):
+    resolution: {integrity: sha512-T7nul1t4TNyfZMJ7pKRKkdeVJWa2CqB8NA1P8BwYaoDI5QSBZARv5oMS43J7b7I5P+4asjVXjb7ONuwDKucahg==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      express: 4 || 5 || ^5.0.0-beta.1
+    dependencies:
+      express: 4.18.3
     dev: false
 
   /express@4.18.3:
