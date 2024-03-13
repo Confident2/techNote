@@ -1,6 +1,9 @@
 import express from "express";
 const noteRouter = express.Router();
 import noteController from "../controllers/noteController";
+import verifyJWT from "../middleware/verifyJWT";
+
+noteRouter.use(verifyJWT);
 
 noteRouter
   .route("/")

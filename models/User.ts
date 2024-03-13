@@ -5,7 +5,6 @@ export interface IUser extends Document {
   username: string;
   roles: string[];
   password: string;
-  refreshToken?: string | null;
   active: boolean;
 }
 

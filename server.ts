@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+require("express-async-errors");
 const app = express();
 import dotenv from "dotenv";
 dotenv.config();
@@ -13,6 +14,7 @@ import mongoose, { Connection } from "mongoose";
 import connectDB from "./config/dbConn";
 import userRoutes from "./routes/userRoutes";
 import noteRoutes from "./routes/noteRoutes";
+import authRoutes from "./routes/authRoutes";
 
 const dbConnection: Connection = mongoose.connection;
 connectDB();
@@ -41,6 +43,7 @@ app.use("/", express.static(path.join(__dirname, "/public")));
 app.use("/", express.static(path.join(__dirname, "/src")));
 
 app.use("/", rootRouter);
+app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/notes", noteRoutes);
 

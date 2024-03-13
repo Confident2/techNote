@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import UserModel, { IUser } from "../models/User";
 import NoteModel from "../models/Note";
-import expressAsyncHandler from "express-async-handler";
 import bcrypt from "bcrypt";
 
 interface IMessage {
@@ -12,7 +11,7 @@ const handleError = (res: Response, statusCode: number, message: string) => {
   res.status(statusCode).json({ message } as IMessage);
 };
 
-const getAllUsers = expressAsyncHandler(async (req: Request, res: Response) => {
+const getAllUsers = async (req: Request, res: Response) => {
   try {
     const users = await UserModel.find().select("-password").lean();
     if (!users || users.length === 0) {
@@ -23,30 +22,37 @@ const getAllUsers = expressAsyncHandler(async (req: Request, res: Response) => {
   } catch (err) {
     handleError(res, 500, "Internal Server Error");
   }
-});
+};
 
-const createUser = expressAsyncHandler(async (req: Request, res: Response) => {
+const createUser = async (req: Request, res: Response) => {
   const { username, password, roles } = req.body;
 
   console.log("Request Body:", req.body);
 
-  if (!username || !password || !Array.isArray(roles) || !roles.length) {
+  if (!username || !password) {
     res.status(400).json({ message: "All fields are required!" } as IMessage);
     return;
   }
 
   try {
-    const existingUser = await UserModel.findOne({ username }).lean().exec();
+    const existingUser = await UserModel.findOne({ username })
+      .collation({ locale: "en", strength: 2 })
+      .lean()
+      .exec();
     if (existingUser) {
       res.status(409).json({
         message: `User '${username}' already exists!`,
       } as IMessage);
       return;
     }
-
+    //Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-    const userObject = { username, password: hashedPassword, roles } as IUser;
+    const userObject =
+      !Array.isArray(roles) || !roles.length
+        ? ({ username, password: hashedPassword } as IUser)
+        : ({ username, password: hashedPassword, roles } as IUser);
 
+    // Create and store new user
     const user = await UserModel.create(userObject);
     if (user) {
       res.status(201).json({ message: `New user ${username} created` });
@@ -55,9 +61,9 @@ const createUser = expressAsyncHandler(async (req: Request, res: Response) => {
     console.error("Error:", err);
     handleError(res, 400, "Invalid user data received");
   }
-});
+};
 
-const updateUser = expressAsyncHandler(async (req: Request, res: Response) => {
+const updateUser = async (req: Request, res: Response) => {
   const { id, username, roles, active, password } = req.body;
 
   if (
@@ -78,7 +84,10 @@ const updateUser = expressAsyncHandler(async (req: Request, res: Response) => {
       return;
     }
 
-    const duplicate = await UserModel.findOne({ username }).lean().exec();
+    const duplicate = await UserModel.findOne({ username })
+      .collation({ locale: "en", strength: 2 })
+      .lean()
+      .exec();
     if (duplicate && duplicate._id.toString() !== id) {
       res.status(409).json({ message: "Duplicate username" });
       return;
@@ -97,9 +106,9 @@ const updateUser = expressAsyncHandler(async (req: Request, res: Response) => {
   } catch (err) {
     handleError(res, 500, "Internal Server Error");
   }
-});
+};
 
-const deleteUser = expressAsyncHandler(async (req: Request, res: Response) => {
+const deleteUser = async (req: Request, res: Response) => {
   const { id } = req.body;
 
   if (!id) {
@@ -128,7 +137,7 @@ const deleteUser = expressAsyncHandler(async (req: Request, res: Response) => {
   } catch (err) {
     handleError(res, 500, "Internal Server Error");
   }
-});
+};
 
 export default {
   getAllUsers,
