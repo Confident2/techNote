@@ -16,3 +16,13 @@
  2024-03-08	08:10:10	724af83c-a763-45a2-a23b-c9254ff42cc6	Error: Not allowed by CORS	GET	/notes	http://localhost:5173
  2024-03-08	08:15:33	843eb8af-9e96-49a3-99a1-d88d07f57490	Error: Not allowed by CORS	GET	/users	http://localhost:5173
  2024-03-09	00:31:54	a751080a-e0ac-421a-8e18-70c9287178b3	SyntaxError: Expected double-quoted property name in JSON at position 120	GET	/notes	undefined
+ 2024-03-10	03:59:19	1b45db61-a763-40ca-a14d-1a8c34f55ad5	Error: Not allowed by CORS	GET	/notes	http://localhost:5173
+ 2024-03-10	03:59:35	1b45db61-a763-40ca-a14d-1a8c34f55ad5	Error: Not allowed by CORS	GET	/notes	http://localhost:5173
+ 2024-03-10	04:53:59	be4afe72-1c03-4f05-90ca-27b22d78d8e4	TypeError: Cannot read properties of undefined (reading 'username')	GET	/auth/refresh	undefined
+ 2024-03-10	04:54:59	be4afe72-1c03-4f05-90ca-27b22d78d8e4	TypeError: Cannot read properties of undefined (reading 'username')	GET	/auth/refresh	undefined
+ 2024-03-10	04:56:24	be4afe72-1c03-4f05-90ca-27b22d78d8e4	TypeError: Cannot read properties of undefined (reading 'username')	GET	/auth/refresh	undefined
+ 2024-03-10	04:56:42	be4afe72-1c03-4f05-90ca-27b22d78d8e4	TypeError: Cannot read properties of undefined (reading 'username')	GET	/auth/refresh	undefined
+ 2024-03-10	04:57:10	be4afe72-1c03-4f05-90ca-27b22d78d8e4	TypeError: Cannot read properties of undefined (reading 'username')	GET	/auth/refresh	undefined
+ 2024-03-10	04:58:02	be4afe72-1c03-4f05-90ca-27b22d78d8e4	TypeError: Cannot read properties of undefined (reading 'username')	GET	/auth/refresh	undefined
+ 2024-03-10	05:00:12	0763e76a-baf7-4a79-8ea5-a6c3fe7b0318	TypeError: Cannot read properties of undefined (reading 'username')	GET	/auth/refresh	undefined
+ 2024-03-10	05:12:14	f5ab2605-1025-4c45-bbd2-143a3e1e83e6	Error: Function not implemented.	GET	/auth/refresh	undefined
