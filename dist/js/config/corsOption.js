@@ -14,6 +14,6 @@ const corsOptions = {
         }
     },
     optionSuccessStatus: 200,
-    credential: true,
+    credentials: true,
 };
 exports.default = corsOptions;

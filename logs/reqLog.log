@@ -1472,3 +1472,13 @@
  2024-03-12	15:45:03	6d3bc797-fb67-4f25-8d5b-bc2f62fc9142	GET	/notes	http://localhost:5173
  2024-03-12	15:45:19	6d3bc797-fb67-4f25-8d5b-bc2f62fc9142	OPTIONS	/notes	http://localhost:5173
  2024-03-12	15:45:19	6d3bc797-fb67-4f25-8d5b-bc2f62fc9142	GET	/notes	http://localhost:5173
+ 2024-03-13	15:52:07	dbfc4682-0f53-4cb2-857b-f09a6acf62f7	GET	/	undefined
+ 2024-03-13	15:52:08	dbfc4682-0f53-4cb2-857b-f09a6acf62f7	GET	/css/style.css	undefined
+ 2024-03-13	15:52:09	dbfc4682-0f53-4cb2-857b-f09a6acf62f7	GET	/favicon.ico	undefined
+ 2024-03-13	15:52:14	dbfc4682-0f53-4cb2-857b-f09a6acf62f7	GET	/	undefined
+ 2024-03-13	15:52:14	dbfc4682-0f53-4cb2-857b-f09a6acf62f7	GET	/css/style.css	undefined
+ 2024-03-13	15:52:19	dbfc4682-0f53-4cb2-857b-f09a6acf62f7	GET	/css/style.css	undefined
+ 2024-03-13	15:52:26	dbfc4682-0f53-4cb2-857b-f09a6acf62f7	GET	/	undefined
+ 2024-03-13	15:52:26	dbfc4682-0f53-4cb2-857b-f09a6acf62f7	GET	/css/style.css	undefined
+ 2024-03-13	15:57:34	dbfc4682-0f53-4cb2-857b-f09a6acf62f7	GET	/dfgfg	undefined
+ 2024-03-13	15:57:34	dbfc4682-0f53-4cb2-857b-f09a6acf62f7	GET	/css/style.css	undefined

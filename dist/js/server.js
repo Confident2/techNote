@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+require("express-async-errors");
 const app = (0, express_1.default)();
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
@@ -17,6 +18,8 @@ const corsOption_1 = __importDefault(require("./config/corsOption"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dbConn_1 = __importDefault(require("./config/dbConn"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
+const noteRoutes_1 = __importDefault(require("./routes/noteRoutes"));
+const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
 const dbConnection = mongoose_1.default.connection;
 (0, dbConn_1.default)();
 const PORT = process.env.PORT || 3500;
@@ -25,6 +28,8 @@ console.log(process.env.NODE_ENV);
 app.use(logEvents_1.logger);
 // Cross-Origin Resource Sharing
 app.use((0, cors_1.default)(corsOption_1.default));
+// built-in middleware to handle urlencoded data: form data
+app.use(express_1.default.urlencoded({ extended: false }));
 // built in middleware
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
@@ -33,7 +38,9 @@ app.use("/", express_1.default.static(path_1.default.join(__dirname, "/public"))
 // app.use(express.static(path.join("/public"));
 app.use("/", express_1.default.static(path_1.default.join(__dirname, "/src")));
 app.use("/", roots_1.default);
+app.use("/auth", authRoutes_1.default);
 app.use("/users", userRoutes_1.default);
+app.use("/notes", noteRoutes_1.default);
 app.all("*", (req, res) => {
     res.status(404);
     if (req.accepts("html")) {

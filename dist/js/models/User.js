@@ -24,11 +24,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-// Define roles
-var UserRole;
-(function (UserRole) {
-    UserRole["User"] = "Employee";
-})(UserRole || (UserRole = {}));
 const userSchema = new mongoose_1.Schema({
     username: {
         type: String,
@@ -39,14 +34,13 @@ const userSchema = new mongoose_1.Schema({
         required: true,
     },
     roles: {
-        type: [{ type: String, enum: Object.values(UserRole) }], // Validate roles against the enum values
-        default: [UserRole.User], // Default role is User
+        type: [String],
+        default: ["Employee"],
     },
     active: {
         type: Boolean,
         default: true,
     },
-    refreshToken: String,
 }, { timestamps: true });
 const UserModel = mongoose_1.default.model("User", userSchema);
 exports.default = UserModel;

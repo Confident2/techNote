@@ -22,12 +22,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const mongoose_sequence_1 = __importDefault(require("mongoose-sequence"));
+const AutoIncrement = require("mongoose-sequence")(mongoose_1.default);
 const noteSchema = new mongoose_1.Schema({
     user: {
         type: mongoose_1.Schema.Types.ObjectId,
@@ -42,16 +39,17 @@ const noteSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    active: {
+    completed: {
         type: Boolean,
         default: false,
     },
-    refreshToken: String,
 }, { timestamps: true });
-noteSchema.plugin(mongoose_sequence_1.default, {
+// Pass the mongoose instance to the mongoose-sequence plugin
+const autoIncrementOptions = {
+    id: "note_seq",
     inc_field: "ticket",
-    id: "ticketNums",
     start_seq: 500,
-});
+};
+noteSchema.plugin(AutoIncrement, Object.assign({ mongoose: mongoose_1.default }, autoIncrementOptions));
 const NoteModel = mongoose_1.default.model("Note", noteSchema);
 exports.default = NoteModel;
